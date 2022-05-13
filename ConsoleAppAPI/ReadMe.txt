@@ -1,4 +1,21 @@
-﻿-------------------------------------------
+﻿--------------------------------------------
+## Client toevoegen op de identity server ##
+--------------------------------------------
+
+We hebben in onze identity server moeten configureren zodat de console app ook een token kan verkrijgen.
+Dat hebben we in de config.cs gedaan met onstaande code.
+    new Client
+    {
+        ClientId = "console_app",
+        AllowedGrantTypes = GrantTypes.ClientCredentials,
+        ClientSecrets =
+        {
+            new Secret("console-app".Sha256())
+        },
+        AllowedScopes = { "krc-genk" }
+    }
+
+-------------------------------------------
 ## Token aanvragen - PostGetTokenAsync() ##
 -------------------------------------------
 
